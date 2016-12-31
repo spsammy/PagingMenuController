@@ -324,7 +324,7 @@ extension PagingMenuController: UIScrollViewDelegate {
         move(toPage: nextPage)
     }
 
-    public func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         // get a reference to the singleton's array of delegates
 //        let scrollEventsDelegates = PagingMenuScrollEvents.sharedInstance.scrollEventsDelegates
 //
