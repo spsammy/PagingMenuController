@@ -16,6 +16,8 @@ public enum MenuMoveState {
     case didMoveController(to: UIViewController, from: UIViewController)
     case willMoveItem(to: MenuItemView, from: MenuItemView)
     case didMoveItem(to: MenuItemView, from: MenuItemView)
+    case didScrollStart
+    case didScrollEnd
 }
 
 internal let MinimumSupportedViewCount = 1
@@ -324,23 +326,26 @@ extension PagingMenuController: UIScrollViewDelegate {
 
     public func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         // get a reference to the singleton's array of delegates
-        let scrollEventsDelegates = PagingMenuScrollEvents.sharedInstance.scrollEventsDelegates
+//        let scrollEventsDelegates = PagingMenuScrollEvents.sharedInstance.scrollEventsDelegates
+//
+//        // inform all who wish to know
+//        for delegate in scrollEventsDelegates {
+//            delegate.scrollingStarted()
+//        }
+        onMove?(.didScrollStart)
 
-        // inform all who wish to know
-        for delegate in scrollEventsDelegates {
-            delegate.scrollingStarted()
-        }
     }
 
     public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        // get a reference to the singleton's array of delegates
-        let scrollEventsDelegates = PagingMenuScrollEvents.sharedInstance.scrollEventsDelegates
+//        // get a reference to the singleton's array of delegates
+//        let scrollEventsDelegates = PagingMenuScrollEvents.sharedInstance.scrollEventsDelegates
+//
+//        // inform all who wish to know
+//        for delegate in scrollEventsDelegates {
+//            delegate.scrollingEnded()
+//        }
+        onMove?(.didScrollEnd)
 
-        // inform all who wish to know
-        for delegate in scrollEventsDelegates {
-            delegate.scrollingEnded()
-        }
-        
         switch (scrollView, decelerate) {
         case (let scrollView, false) where scrollView.isEqual(menuView): break
         default: return
