@@ -325,25 +325,10 @@ extension PagingMenuController: UIScrollViewDelegate {
     }
 
     public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        // get a reference to the singleton's array of delegates
-//        let scrollEventsDelegates = PagingMenuScrollEvents.sharedInstance.scrollEventsDelegates
-//
-//        // inform all who wish to know
-//        for delegate in scrollEventsDelegates {
-//            delegate.scrollingStarted()
-//        }
         onMove?(.didScrollStart)
-
     }
 
     public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-//        // get a reference to the singleton's array of delegates
-//        let scrollEventsDelegates = PagingMenuScrollEvents.sharedInstance.scrollEventsDelegates
-//
-//        // inform all who wish to know
-//        for delegate in scrollEventsDelegates {
-//            delegate.scrollingEnded()
-//        }
         onMove?(.didScrollEnd)
 
         switch (scrollView, decelerate) {
