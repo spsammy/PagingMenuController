@@ -308,6 +308,14 @@ open class PagingMenuController: UIViewController {
     fileprivate func showPagingMenuControllers() {
         pagingViewController?.visibleControllers.forEach { $0.view.alpha = 1 }
     }
+
+    func getMenuView() -> MenuView? {
+        return menuView
+    }
+
+    func getMenuViewItems() -> [MenuItemView]?{
+        return menuView?.sortedMenuItemViews
+    }
 }
 
 extension PagingMenuController: UIScrollViewDelegate {
@@ -591,11 +599,4 @@ extension PagingMenuController {
         NSException(name: NSExceptionName(rawValue: exceptionName), reason: reason, userInfo: nil).raise()
     }
 
-    func getMenuView() -> MenuView? {
-        return menuView
-    }
-
-    func getMenuViewItems() -> [MenuItemView]?{
-        return menuView?.sortedMenuItemViews
-    }
 }
