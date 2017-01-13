@@ -590,4 +590,12 @@ extension PagingMenuController {
     fileprivate func raise(_ reason: String) {
         NSException(name: NSExceptionName(rawValue: exceptionName), reason: reason, userInfo: nil).raise()
     }
+
+    func getMenuView() -> MenuView? {
+        return menuView
+    }
+
+    func getMenuViewItems() -> [MenuItemView]?{
+        return menuView?.sortedMenuItemViews
+    }
 }
