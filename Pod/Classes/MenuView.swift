@@ -15,7 +15,7 @@ open class MenuView: UIScrollView {
     internal var onMove: ((MenuMoveState) -> Void)?
     
     fileprivate var menuOptions: MenuViewCustomizable!
-    fileprivate var sortedMenuItemViews = [MenuItemView]()
+    var sortedMenuItemViews = [MenuItemView]()
     fileprivate let contentView: UIView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         return $0
