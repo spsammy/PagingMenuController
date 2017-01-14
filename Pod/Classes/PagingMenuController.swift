@@ -309,11 +309,7 @@ open class PagingMenuController: UIViewController {
         pagingViewController?.visibleControllers.forEach { $0.view.alpha = 1 }
     }
 
-    func getMenuView() -> MenuView? {
-        return menuView
-    }
-
-    func getMenuViewItems() -> [MenuItemView]?{
+    open func getMenuViewItems() -> [MenuItemView]?{
         return menuView?.sortedMenuItemViews
     }
 }
